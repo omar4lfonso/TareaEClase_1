@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.tareae1_chat_cliente_servidor/com.example.tareae1_chat_cliente_servidor.HelloApplication
+                                com.example.tareae1_chat_cliente_servidor/com.example.tareae1_chat_cliente_servidor.ChatApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
