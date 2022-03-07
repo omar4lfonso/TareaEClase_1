@@ -8,7 +8,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.function.Consumer;
 
-public class ConexionRed {
+public abstract class ConexionRed {
 
     private hiloConexion hConexion = new hiloConexion();
     private Consumer<Serializable> alRecibirLlamada;

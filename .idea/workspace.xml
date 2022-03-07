@@ -34,7 +34,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ChatApplicacion">
+    <configuration name="ChatApplicacion" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.tareae1_chat_cliente_servidor.ChatApplicacion" />
+      <module name="TareaE1_Chat_Cliente_Servidor" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.tareae1_chat_cliente_servidor.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ChatApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.tareae1_chat_cliente_servidor.ChatApplication" />
       <module name="TareaE1_Chat_Cliente_Servidor" />
@@ -50,6 +63,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ChatApplicacion" />
         <item itemvalue="Application.ChatApplication" />
       </list>
     </recent_temporary>
@@ -62,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1646605857646</updated>
-      <workItem from="1646605859539" duration="5401000" />
+      <workItem from="1646605859539" duration="7342000" />
     </task>
     <servers />
   </component>

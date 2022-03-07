@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class ChatApplication extends Application {
+public class ChatAplicacion extends Application {
 
     private TextArea messages = new TextArea();
 
