@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Main-Class: com.example.tareae1_chat_cliente_servidor.ChatAplicacion
+
