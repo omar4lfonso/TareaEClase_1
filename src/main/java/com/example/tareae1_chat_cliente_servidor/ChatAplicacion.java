@@ -1,15 +1,16 @@
 package com.example.tareae1_chat_cliente_servidor;
 
+import com.example.tareae1_chat_cliente_servidor.controlador.ControladorCliente;
+import com.example.tareae1_chat_cliente_servidor.controlador.ControladorServidor;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.application.Platform;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -21,75 +22,52 @@ public class ChatAplicacion extends Application {
     private boolean esServidor = false;
 
     private TextArea mensajes = new TextArea();
-    private ConexionRed conexion = esServidor ? crearServidor() : crearCliente();
 
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
         this.stage.setTitle(esServidor ? "Chat Servidor" : "Chat App");
 
-        /*stage.setScene(new Scene(crearContenido()));
-        stage.show();
-        stage.setTitle(esServidor ? "Servidor" : "Cliente");*/
+        crearContenido();
     }
 
-    private void crearContenido(){
+    private void crearContenido() throws IOException {
 
         // Cargar los fmxl que contienen el GUI ya sea Cliente o Servidor.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(ChatAplicacion.class.getResource(esServidor ? "ServidorGUI.fxml" : "ClienteGUI.fxml"));
 
+        if(esServidor == false){
+            loader.setController(new ControladorCliente());
 
+            windowLayout = (VBox) loader.load();
 
-        /*mensajes.setPrefHeight(550);
-        TextField input = new TextField();
-        Button enviarBtn = new Button();
-        input.setOnAction(event -> {
-            String mensaje = esServidor ? "Servidor: " : "Cliente: ";
-            mensaje += input.getText();
-            input.clear();
+            Scene scene = new Scene(windowLayout);
+            stage.setScene(scene);
+            stage.show();
+        }
+        else{
+            ControladorServidor controladorServidor = new ControladorServidor();
+            loader.setController(controladorServidor);
 
-            mensajes.appendText(mensaje + "\n");
+            windowLayout = (VBox) loader.load();
 
-            try {
-                conexion.enviarMsg(mensaje);
-            }
-            catch (IOException e) {
-                mensajes.appendText("ERROR DE ENVIO!\n");
-            }
-        });
+            Scene scene = new Scene(windowLayout);
+            stage.setScene(scene);
+            stage.show();
 
-        enviarBtn.setText("Enviar");
-
-        VBox root =  new VBox(20, mensajes, input, enviarBtn);
-        root.setPrefSize(600, 600);
-        return root;*/
-    }
-
-    @Override
-    public void init() throws IOException {
-        conexion.iniciarConexion();
-    }
-
-    @Override
-    public void stop() throws IOException {
-        conexion.cerrarConexion();
-    }
-
-    private Servidor crearServidor(){
-        return new Servidor(55555, data -> {
-            Platform.runLater(() -> {
-                mensajes.appendText(data.toString() + "\n");
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent windowEvent) {
+                    // Deben eliminarse los hilos del servidor
+                    // en caso de que el usuario decida cerrarlo.
+                    if (controladorServidor.servidor != null) {
+                        controladorServidor.servidor.detener();
+                        controladorServidor.servidor = null;
+                    }
+                }
             });
-        });
-    }
-
-    private Cliente crearCliente(){
-        return new Cliente("127.0.0.1", 55555,  data -> {
-            Platform.runLater(() -> {
-                mensajes.appendText(data.toString() + "\n");
-            });
-        });
+        }
     }
 
     public static void main(String[] args) {
