@@ -56,7 +56,6 @@ public class ControladorCliente {
         nombreUsuario = txtNombreUsuario.getText();
         // probar si se puede iniciar la conexion al servidor
         // si falla no se hace nada
-        /////////TODO: ADD INPUT TO THE IF STATEMENT start()
         if(iniciar()){
             return;
         }

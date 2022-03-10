@@ -24,6 +24,7 @@ public class ControladorServidor {
 
     private ObservableList<String> usuarios;
 
+    @FXML
     public void iniciarServidor(){
         // crear nuevo Servidor
         servidor = new Servidor(1500, (ControladorServidor) this);
@@ -37,6 +38,7 @@ public class ControladorServidor {
     /**
      * Esta funcion se encarga de detener el servidor
      */
+    @FXML
     public void detenerServidor(){
         if (servidor != null){
             servidor.detener();
