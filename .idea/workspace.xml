@@ -37,7 +37,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/OneDrive - Intel Corporation/Documents/Curso Datos I/Tareas EClase" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -75,6 +75,9 @@
       <workItem from="1646673614755" duration="4690000" />
       <workItem from="1646699485404" duration="5753000" />
       <workItem from="1646859906128" duration="33342000" />
+      <workItem from="1648949811717" duration="776000" />
+      <workItem from="1648950619864" duration="44000" />
+      <workItem from="1648952847701" duration="986000" />
     </task>
     <servers />
   </component>
