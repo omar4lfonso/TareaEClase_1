@@ -34,14 +34,23 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/apache-log4j-1.2.17" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.general" />
+    <property name="project.structure.side.proportion" value="0.39770114" />
+    <property name="settings.editor.selected.configurable" value="gradle.compiler" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oasolisr\Desktop\Repos_Datos_I\CloneTareaE1\TareaEClase_1\src\main\resources" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="ChatAplicacion" type="Application" factoryName="Application" singleton="false" nameIsGenerated="true">
@@ -77,7 +86,8 @@
       <workItem from="1646859906128" duration="33342000" />
       <workItem from="1648949811717" duration="776000" />
       <workItem from="1648950619864" duration="44000" />
-      <workItem from="1648952847701" duration="986000" />
+      <workItem from="1648952847701" duration="3518000" />
+      <workItem from="1649031651954" duration="3401000" />
     </task>
     <servers />
   </component>

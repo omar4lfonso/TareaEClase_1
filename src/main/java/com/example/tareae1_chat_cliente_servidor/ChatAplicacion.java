@@ -1,18 +1,19 @@
 package com.example.tareae1_chat_cliente_servidor;
 
-import com.example.tareae1_chat_cliente_servidor.controlador.ControladorCliente;
 import com.example.tareae1_chat_cliente_servidor.controlador.ControladorServidor;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class ChatAplicacion extends Application {
+    private static Logger logger = Logger.getLogger(ChatAplicacion.class);
 
     private Stage stage;
 
@@ -60,6 +61,8 @@ public class ChatAplicacion extends Application {
     }
 
     public static void main(String[] args) {
+        logger.info("Hello world!");
+        logger.fatal("FATAL ERROR!");
         launch();
     }
 }
