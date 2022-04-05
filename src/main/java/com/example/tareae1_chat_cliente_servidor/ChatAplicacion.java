@@ -8,16 +8,19 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import org.apache.log4j.Appender;
+import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class ChatAplicacion extends Application {
-    private static Logger logger = Logger.getLogger(ChatAplicacion.class);
+    private static final Logger logger = LogFactory.getLogger();
 
     private Stage stage;
 
-    private boolean esServidor = true;
+    private boolean esServidor = false;
 
     private String tipoApp = esServidor ? "ServidorGUI.fxml" : "ClienteGUI.fxml";
 
@@ -30,6 +33,7 @@ public class ChatAplicacion extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.show();
+
         }
         else{
             FXMLLoader loader = new FXMLLoader(ChatAplicacion.class.getResource("ServidorGUI.fxml"));
@@ -59,10 +63,9 @@ public class ChatAplicacion extends Application {
 
         crearContenido();
     }
-
     public static void main(String[] args) {
-        logger.info("Hello world!");
-        logger.fatal("FATAL ERROR!");
+        logger.info("si funciona");
         launch();
     }
 }
+
