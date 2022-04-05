@@ -9,8 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7453328e-e356-432e-bc63-fba4c23a026f" name="Changes" comment="Commit LogFactory">
+    <list default="true" id="7453328e-e356-432e-bc63-fba4c23a026f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/Servidor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente$EscucharServidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente$EscucharServidor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -95,7 +100,8 @@
       <workItem from="1648949811717" duration="776000" />
       <workItem from="1648950619864" duration="44000" />
       <workItem from="1648952847701" duration="3518000" />
-      <workItem from="1649031651954" duration="3401000" />
+      <workItem from="1649031651954" duration="4002000" />
+      <workItem from="1649125191346" duration="3985000" />
     </task>
     <task id="LOCAL-00001" summary="Commit LogFactory">
       <created>1649129322228</created>
