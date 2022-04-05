@@ -3,6 +3,7 @@ package com.example.tareae1_chat_cliente_servidor.modelo;
 import java.io.Serializable;
 
 public class MensajeChat implements Serializable {
+
     // Estos son los diferentes mensajes enviados por el cliente
     // QUIENESTA para recibir la lista de usuarios conectados
     // MENSAJE un mensaje ordianario

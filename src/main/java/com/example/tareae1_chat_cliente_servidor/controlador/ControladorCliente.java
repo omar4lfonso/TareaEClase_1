@@ -1,5 +1,7 @@
 package com.example.tareae1_chat_cliente_servidor.controlador;
 
+import com.example.tareae1_chat_cliente_servidor.ChatAplicacion;
+import com.example.tareae1_chat_cliente_servidor.LogFactory;
 import com.example.tareae1_chat_cliente_servidor.modelo.MensajeChat;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -11,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -46,6 +49,7 @@ public class ControladorCliente {
     private ObjectOutputStream sSalida;		// para escritura del socket
     private Socket socket;
 
+    private static final Logger logger = LogFactory.getLogger();
     /**
      * Metodo utilizado por el boton de login
      */
@@ -54,6 +58,7 @@ public class ControladorCliente {
         servidor = txtHostIP.getText();
         System.out.println(servidor);
         nombreUsuario = txtNombreUsuario.getText();
+
         // probar si se puede iniciar la conexion al servidor
         // si falla no se hace nada
         if(iniciar()){
@@ -80,7 +85,8 @@ public class ControladorCliente {
                 txtHostIP.setEditable(true);
             }
             catch (IOException e){
-                mostrarLog("Excepcion escribiendo al servidor: " + e);
+                mostrarLog("Excepción escribiendo al servidor: " + e);
+                logger.fatal("Excepción escribiendo al servidor: " + e);
             }
         }
     }
@@ -96,7 +102,7 @@ public class ControladorCliente {
                 txtMsgUsuario.setText("");
             }
             catch (IOException e){
-                mostrarLog("Excepcion escribiendo al servidor: " + e);
+                mostrarLog("Excepción escribiendo al servidor: " + e);
             }
         }
     }
@@ -125,6 +131,7 @@ public class ControladorCliente {
         }
         catch (Exception e){
             mostrarLog("Error en la conexion al servidor: " + e);
+            logger.fatal("Error en la conexion al servidor: " + e);
         }
 
         String msg = "Conexion aceptada" + socket.getInetAddress() + ":" + socket.getPort();
@@ -137,6 +144,7 @@ public class ControladorCliente {
         }
         catch (IOException eIO){
             mostrarLog("Excepcion creando streams de Entrada/Salida" + eIO);
+            logger.fatal("Excepcion creando streams de Entrada/Salida" + eIO);
             return false;
         }
 
@@ -150,6 +158,7 @@ public class ControladorCliente {
         }
         catch (IOException eIO){
             mostrarLog("Exepcion de login: " + eIO);
+            logger.fatal("Exepcion de login: " + eIO);
             desconectar();
             return false;
         }
@@ -192,7 +201,7 @@ public class ControladorCliente {
         btnLogout.setDisable(true);
         // permitir que el usuario cambie el Host
         txtHostIP.setEditable(true);
-        // se debe evitar la reaccion de los otros modulos
+        // se debe evitar la reacción de los otros módulos
         conectado = false;
     }
 
@@ -220,11 +229,12 @@ public class ControladorCliente {
                         txtAreaMensajesServidor.appendText(msg);
                     }
                 }
-                // no sucede con un objeto String pero aun asi debe realizarce el catch
+                // no sucede con un objeto String pero aun asi debe realizarse el catch
                 catch (IOException e) {
                 }
                 catch (ClassNotFoundException e) {
                     e.printStackTrace();
+                    logger.fatal("Error class not found: " + e);
                 }
             }
         }

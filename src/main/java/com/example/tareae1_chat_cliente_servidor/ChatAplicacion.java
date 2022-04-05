@@ -1,22 +1,23 @@
 package com.example.tareae1_chat_cliente_servidor;
 
-import com.example.tareae1_chat_cliente_servidor.controlador.ControladorCliente;
 import com.example.tareae1_chat_cliente_servidor.controlador.ControladorServidor;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+
+import org.apache.log4j.Logger;
 
 import java.io.IOException;
 
 public class ChatAplicacion extends Application {
+    private static final Logger logger = LogFactory.getLogger();
 
     private Stage stage;
 
-    private boolean esServidor = true;
+    private static boolean esServidor = false;
 
     private String tipoApp = esServidor ? "ServidorGUI.fxml" : "ClienteGUI.fxml";
 
@@ -29,6 +30,7 @@ public class ChatAplicacion extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.show();
+            logger.info("Esta es la aplicación de Cliente!");
         }
         else{
             FXMLLoader loader = new FXMLLoader(ChatAplicacion.class.getResource("ServidorGUI.fxml"));
@@ -36,6 +38,7 @@ public class ChatAplicacion extends Application {
             Scene scene = new Scene(loader.load());
             stage.setScene(scene);
             stage.show();
+            logger.info("Esta es la aplicación de Servidor!");
 
             stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
                 @Override
@@ -58,8 +61,8 @@ public class ChatAplicacion extends Application {
 
         crearContenido();
     }
-
     public static void main(String[] args) {
         launch();
     }
 }
+

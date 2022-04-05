@@ -9,9 +9,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import com.example.tareae1_chat_cliente_servidor.ChatAplicacion;
 import com.example.tareae1_chat_cliente_servidor.modelo.MensajeChat;
+import org.apache.log4j.Logger;
 
 public class Servidor {
+    private static Logger logger = Logger.getLogger(ChatAplicacion.class);
     // Debe crearse un ID unico para cada conexion
     private static int idUnico;
     // un ArrayList para guardar la lista de clientes conectados
@@ -78,17 +81,19 @@ public class Servidor {
             }
             catch(Exception e) {
                 mostrarLog("Excepcion cerrando servidor y clientes: " + e);
+                logger.fatal("Excepcion cerrando servidor y clientes: " + e);
             }
         }
         // something went bad
         catch (IOException e) {
             String msg = sdf.format(new Date()) + "Excepcion en un nuevo ServerSocket: " + e + "\n";
             mostrarLog(msg);
+            logger.fatal("Excepción en un nuevo ServerSocket: " + e);
         }
     }
 
     /**
-     * Funcion para el GUI para detener el servidor
+     * Función para el GUI para detener el servidor
      */
     public void detener(){
         continuarServidor = false;
