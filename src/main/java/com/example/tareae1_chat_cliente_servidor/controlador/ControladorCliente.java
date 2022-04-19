@@ -3,6 +3,7 @@ package com.example.tareae1_chat_cliente_servidor.controlador;
 import com.example.tareae1_chat_cliente_servidor.ChatAplicacion;
 import com.example.tareae1_chat_cliente_servidor.LogFactory;
 import com.example.tareae1_chat_cliente_servidor.modelo.MensajeChat;
+import com.example.tareae1_chat_cliente_servidor.modelo.MensajeChat2;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -62,12 +63,12 @@ public class ControladorCliente {
         // probar si se puede iniciar la conexion al servidor
         // si falla no se hace nada
         if(iniciar()){
+            conectado = true;
+            btnLogin.setDisable(true);
+            btnLogout.setDisable(false);
+            txtHostIP.setEditable(false);
             return;
         }
-        conectado = true;
-        btnLogin.setDisable(false);
-        btnLogout.setDisable(false);
-        txtHostIP.setEditable(false);
     }
 
     /**
@@ -96,13 +97,27 @@ public class ControladorCliente {
      */
     public void enviarMensaje(){
         if(conectado) {
-            MensajeChat msg = new MensajeChat(MensajeChat.MENSAJE, txtMsgUsuario.getText());
-            try{
-                sSalida.writeObject(msg);
-                txtMsgUsuario.setText("");
+            String value = txtMsgUsuario.getText();
+            if(value != null && value.matches("[0-9.]+")){
+                MensajeChat2 msg = new MensajeChat2(MensajeChat.MENSAJE, Integer.parseInt(value));
+                try{
+                    sSalida.writeObject(msg);
+                    txtMsgUsuario.setText("");
+                }
+                catch (IOException e){
+                    mostrarLog("Excepción escribiendo al servidor: " + e);
+                }
             }
-            catch (IOException e){
-                mostrarLog("Excepción escribiendo al servidor: " + e);
+            else{
+                MensajeChat msg = new MensajeChat(MensajeChat.MENSAJE, value);
+
+                try{
+                    sSalida.writeObject(msg);
+                    txtMsgUsuario.setText("");
+                }
+                catch (IOException e){
+                    mostrarLog("Excepción escribiendo al servidor: " + e);
+                }
             }
         }
     }
@@ -163,6 +178,7 @@ public class ControladorCliente {
             return false;
         }
 
+        System.out.println("Se conecto correctamente, conectado = ");
         // Exito: se le informa a la llamada que funciono.
         return true;
     }
@@ -209,7 +225,7 @@ public class ControladorCliente {
      * Esta clase permite esperar por los mensajes que provienen del servidor y los adjunta al area de texto
      */
     class EscucharServidor extends Thread {
-        public void correr(){
+        public void run(){
             usuarios = FXCollections.observableArrayList();
             listaUsuarios.setItems(usuarios);
             while (true) {
