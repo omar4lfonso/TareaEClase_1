@@ -9,14 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7453328e-e356-432e-bc63-fba4c23a026f" name="Changes" comment="">
+    <list default="true" id="7453328e-e356-432e-bc63-fba4c23a026f" name="Changes" comment="Commit LogFactory">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/Servidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/controlador/Servidor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/modelo/MensajeChat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/tareae1_chat_cliente_servidor/modelo/MensajeChat.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/ChatAplicacion.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente$EscucharServidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente$EscucharServidor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/ControladorCliente.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/Servidor$ClientThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/Servidor$ClientThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/Servidor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/example/tareae1_chat_cliente_servidor/controlador/Servidor.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +51,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="JavaMethodFindUsagesOptions.isOverridingMethods" value="true" />
+    <property name="JavaMethodFindUsagesOptions.isSearchForTextOccurrences" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -102,6 +107,11 @@
       <workItem from="1648952847701" duration="3518000" />
       <workItem from="1649031651954" duration="4002000" />
       <workItem from="1649125191346" duration="3985000" />
+      <workItem from="1650117732918" duration="29570000" />
+      <workItem from="1650298682629" duration="585000" />
+      <workItem from="1650421700124" duration="4125000" />
+      <workItem from="1650727321746" duration="1363000" />
+      <workItem from="1650834395782" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="Commit LogFactory">
       <created>1649129322228</created>
@@ -131,14 +141,9 @@
     <MESSAGE value="Commit LogFactory" />
     <option name="LAST_COMMIT_MESSAGE" value="Commit LogFactory" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.RuntimeException" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TareaE1_Chat_Cliente_Servidor$ChatAplicacion.ic" NAME="ChatAplicacion Coverage Results" MODIFIED="1650123735985" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.tareae1_chat_cliente_servidor.*</FILTER>
+    </SUITE>
   </component>
 </project>

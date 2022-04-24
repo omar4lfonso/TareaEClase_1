@@ -3,6 +3,7 @@ package com.example.tareae1_chat_cliente_servidor.controlador;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
@@ -11,6 +12,9 @@ import java.util.Date;
 
 import com.example.tareae1_chat_cliente_servidor.ChatAplicacion;
 import com.example.tareae1_chat_cliente_servidor.modelo.MensajeChat;
+import com.example.tareae1_chat_cliente_servidor.modelo.MensajeChat2;
+import com.example.tareae1_chat_cliente_servidor.modelo.SwitchClases;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 public class Servidor {
@@ -133,8 +137,8 @@ public class Servidor {
 
         // se realiza un ciclo en orden inverso en caso de que se necesite remover un Cliente
         // porque haberse desconectado
-        for (int i = clientesConectados.size(); i >= 0; --i){
-            ClientThread ct = clientesConectados.get(i);
+        for (int i = clientesConectados.size(); i > 0; --i){
+            ClientThread ct = clientesConectados.get(i-1);
             // intente escribir al cliente, si este falla, remover de la lista
             if(!ct.writeMsg(mensajeLf)){
                 clientesConectados.remove(i);
@@ -173,6 +177,8 @@ public class Servidor {
         String nombreUsuario;
         // identificador de comandos recibidos
         MensajeChat cm;
+        MensajeChat2 aja;
+        Object cm2;
         // Fecha
         String fecha;
 
@@ -187,15 +193,21 @@ public class Servidor {
 
                 // leer nombre de usuario
                 nombreUsuario = (String) sEntrada.readObject();
+                System.out.println("**********************************");
+                System.out.println(nombreUsuario);
+                System.out.println("**********************************");
                 controladorServidor.agregarUsuario(nombreUsuario);
                 difundirMsg(nombreUsuario + ":QUIENESTA"); // difundir un mensaje de nuevo usuario conectado
                 writeMsg(nombreUsuario + ":QUIENESTA");
+                int variable = 1/0;
                 for(ClientThread cliente : clientesConectados){
                     writeMsg(cliente.nombreUsuario + ":QUIENESTA");
                 }
             }
             catch(IOException e){
+                String msg = "Excepcion creando nuevo Stream de Entrada/Salida: " + e;
                 mostrarLog("Excepcion creando nuevo Stream de Entrada/Salida: " + e);
+                logger.log(Level.FATAL, msg);
             }
             catch (ClassNotFoundException e) {
             }
@@ -209,7 +221,29 @@ public class Servidor {
             while(continuarCorriendo) {
                 // leer un String como objecto
                 try {
-                    cm = (MensajeChat) sEntrada.readObject();
+                    cm2 = sEntrada.readObject();
+                    //cm = (MensajeChat) cm2;
+                    //entero = (int) sEntrada.readByte();
+                    if(cm2 instanceof MensajeChat2)
+                    {
+                        System.out.println("Por fin Mensaje Chat 2");
+                        aja = (MensajeChat2) cm2;
+                        cm = new MensajeChat(aja.obtenerTipo(), Integer.toString(aja.obtenerMensaje()));
+                        System.out.println(cm2.getClass().getSimpleName());
+
+                        String str = (String) cm2.getClass().getSimpleName();
+                        String str2 = "MensajeChat2";
+                        SwitchClases.Clazz claseObjeto = SwitchClases.Clazz.valueOf(cm2.getClass().getSimpleName());
+                        if(str2 == str){
+                            System.out.println("Si es igual");
+                        }
+                    }
+                    else if(cm2 instanceof MensajeChat){
+                        System.out.println("Por fin Mensaje Chat 1");
+                        cm = (MensajeChat) cm2;
+                        System.out.println(cm.getClass().getSimpleName());
+                    }
+
                 }
                 catch (IOException e) {
                     mostrarLog(nombreUsuario + " Exepcion leyendo el Stream: " + e);
